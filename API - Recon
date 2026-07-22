@@ -1,0 +1,40 @@
+**#Passive reconn**
+-- simple google search for API to check if they're advertised. 
+-- use searh term -- intitle:"api" site:"coinbase.com" 
+-- inurl:"api/v1" site:microsoft.com
+-- intitle:josn site:ebay.com
+-- 
+
+dark recon:
+navigate to github: example - uscis.com 
+once you landed on the target's github page : search for term such as shodan_api_key, extension:json nasa, "authorization:Bearer", filename:swagger.json
+
+
+then you can head to : shodan.io , wp:json , content-type: application/json" , we can search reddit 
+{ MAY BE DEVLOP A SCRIPT FOR THAT} that do all the open source research for you. 
+
+then you can look at : webarchive.org , it tracks all the changes made to an api -- it keeps us a snapshot
+
+looking at there past URL documention. 
+
+
+
+**##Active Scanning**
+using nmap to perform port specific scanning and entire localhost. 
+![nmap recon](image.png) 
+
+
+AMASS: can do both active and passive. you can plug in API's from opensources/form your suscription and plug it in config. 
+
+
+we can use gobuster : 
+![gobuster directory enumneration using a wordlist from seclist](image-1.png)
+
+
+we can use fuzz : 
+
+
+
+DISCOVERY VIA SOURCE CODE/MAPPING: 
+![info gathering via web devloper tools](image-2.png)
+based on the endpoints we can gather/attack with specific wordlists. 
