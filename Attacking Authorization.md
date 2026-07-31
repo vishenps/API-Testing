@@ -1,6 +1,13 @@
 **#API1: Broken object level auth**
 BOLA: access to ID. 
-BFLA: broken function level authorization. 
+BFLA: broken function level authorization.
+
+
+techniches we should try out: changing http method, or on a diff object. 
+
+
+
+it starts from enumeration- discovery, directory busting. 
 
 
 #API revealing too much data: ![excessive data vulneribility](image-3.png)
