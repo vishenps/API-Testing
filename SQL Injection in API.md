@@ -11,3 +11,6 @@ TESTING for initial vulnerable statement:
 ![Using sqlmap](image-10.png)
 
 
+
+![NoSQL Exploitation on coupon endpoint, Same was also achived using REGEX](image-12.png).
+
