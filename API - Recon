@@ -38,3 +38,43 @@ we can use fuzz :
 DISCOVERY VIA SOURCE CODE/MAPPING: 
 ![info gathering via web devloper tools](image-2.png)
 based on the endpoints we can gather/attack with specific wordlists. 
+
+
+
+
+-------------
+
+Reconnaissance and information gathering/Fingerprinting web Technologies: 
+choosing a program listed in intigriti:
+![alt text](image-19.png)
+
+lay of the land/tech stack using wapplyzer extension; 
+![alt text](image-20.png)
+
+or curl -I https://dhl.com
+
+
+Additional fingerprinting using curl command:![alt text](image-21.png)
+
+looking for tags, security header. but also can check on securityheaders.com
+
+we can scan open ports on any website using namap that might be really of good value. 
+
+
+
+What questions to ask while information gathering? 
+
+
+***Directory Busting*** 
+ --- We can use wordlist for dirbuster 
+
+ ffuf -w /Users/*****/Documents/dir_busting.txt -u http://127.0.0.1:8888/FUZZ 
+ ![alt text](image-22.png)
+
+
+
+
+ 
+
+
+

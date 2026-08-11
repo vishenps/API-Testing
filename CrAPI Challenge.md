@@ -64,7 +64,24 @@ Challenge 3 - Reset the password of a different user
     ![alt text](image-18.png) 
     
 
+---------------
+Excessive Data Exposure
+Challenge 4 - Find an API endpoint that leaks sensitive information of other users
+![alt text](image-23.png)
 
+
+Challenge 5 - Find an API endpoint that leaks an internal property of a video
+![alt text](image-24.png)
+
+-------
+
+Challenge 6 - Perform a layer 7 DoS using ‘contact mechanic’ feature
+
+
+-------
+Challenge 7 - Delete a video of another user 
+accessed the admin panel by lowering version(which was found during recon phase and upon recursive dir busting admin panel was also discovered.)
+![alt text](image-25.png)
 
 
 
