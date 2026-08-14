@@ -85,3 +85,20 @@ accessed the admin panel by lowering version(which was found during recon phase 
 
 
 
+
+
+Challenge 8 - Get an item for free
+![alt text](image-26.png)
+
+**LOL**
+![alt text](image-27.png)
+
+
+
+
+Challenge 11 - Make crAPI send an HTTP call to “www.google.com” and return the HTTP response.
+![alt text](image-28.png)
+
+
+
+
