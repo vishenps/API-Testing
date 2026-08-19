@@ -73,8 +73,110 @@ What questions to ask while information gathering?
 
 
 
-
+--------
+Also while doing recon we should find information about: 
+>> The input data the API processes, including both *compulsory and optional parameters*.
+>>The types of requests the API accepts, including *supported HTTP methods and media formats*.
+>> *Rate limits* and authentication mechanisms.
  
 
+ also API related documents can be for both devlopers and Machine/softwares(xml, JSON), Also API documentation is often publicly available, particularly if the API is intended for use by external developers. If this is the case, always start your recon by reviewing the documentation.
+
+ If you identify an endpoint for a resource, make sure to investigate the base path. For example, if you identify the resource endpoint /api/swagger/v1/users/123, then you should investigate the following paths:
+
+/api/swagger/v1
+/api/swagger
+/api
+
+command: curl -vgw "\n" -X DELETE 'https://0a7200b6049a735281718ade005a004e.web-security-academy.net/api/user/carlos' -d '{}'
+![alt text](image-29.png)
 
 
+*Plotting your attack:*
+
+
+also to parse : we can use Burp Scanner to crawl and audit OpenAPI documentation, or any other documentation in JSON or YAML format. You can also parse OpenAPI documentation using the OpenAPI Parser BApp. 
+
+>>Use Burp applicaiton to crawl and investigate manually.look for the pattern that suggest website/API/.. *look for javascript files as they can point you towards API endpoints. Consider using JSLINK finder Bapp EXTENSION for heavylifting extraction.
+
+As you interact with the API endpoints, review error messages and other responses closely
+
+GET - Retrieves data from a resource.
+PATCH - Applies partial changes to a resource.
+OPTIONS - Retrieves information on the types of request methods that can be used on a resource.
+
+also it's important to check each OPTIONS(GET,POST,DELETE) on each endpoints. (you can have HTTP verbs builtiN.)
+
+
+API endpoints expect data in specific format, it can handle one formaT(for example JSON) but susceptable to handle other like XML. 
+
+
+![](<Screenshot 2026-08-17 at 4.41.44 PM.png>)
+![alt text](image-30.png)
+
+Revisiting endpoints/Recon:
+When looking for hidden endpoints, use wordlists based on common API naming conventions and industry terms. Make sure you also include terms that are relevant to the application, based on your initial recon. 
+
+>> how to find hidden parameters in API endpoints? 
+The Param miner BApp enables you to automatically guess up to 65,536 param names per request.
+
+
+
+
+How to Prevent vulneribilities in APIs:
+secure your documentation if you don't intent it to be publicy available. 
+ensure your documenrtaiton is upto doate so that legitimate testers have full visibility of the API's attack surface.
+Apply an allowlist of permitted HTTP methods.
+Validate that the content type is expected for each request or response.
+Use generic error messages to avoid giving away information that may be useful for an attacker.
+Use protective measures on all versions of your API, not just the current production version.
+To prevent mass assignment vulnerabilities, allowlist the properties that can be updated by the user, and blocklist sensitive properties that shouldn't be updated by the user.
+
+
+Server-side parameter pollution
+>> erver-side parameter pollution occurs when a website embeds user input in a server-side request to an internal API without adequate encoding. This means that an attacker may be able to manipulate or inject parameters. 
+>> o test for server-side parameter pollution in the query string, place query syntax characters like #, &, and = in your input and observe how the application responds 
+ GET /userSearch?name=peter&back=/home
+
+  The internal API interprets two name parameters. The impact of this depends on how the application processes the second parameter. This varies across different web technologies. For example:
+
+    PHP parses the last parameter only. This would result in a user search for carlos.
+    ASP.NET combines both parameters. This would result in a user search for peter,carlos, which might result in an Invalid username error message.
+    Node.js / express parses the first parameter only. This would result in a user search for peter, giving an unchanged result.
+
+Also this can be injected in Structured data formats as well. 
+POST /myaccount
+{"name": "peter"}
+
+This results in the following server-side request:
+PATCH /users/7312/update
+{"name":"peter"}
+
+You can attempt to add the access_level parameter to the request as follows:
+POST /myaccount
+{"name": "peter\",\"access_level\":\"administrator"}
+
+If the user input is decoded, then added to the server-side JSON data without adequate encoding, this results in the following server-side request:
+PATCH /users/7312/update
+{"name":"peter","access_level":"administrator"}
+
+Prevention: To prevent server-side parameter pollution, use an allowlist to define characters that don't need encoding, and make sure all other user input is encoded before it's included in a server-side request. You should also make sure that all input adheres to the expected format and structure. 
+
+
+----------
+
+File Upload Vulnerabilities: 
+
+
+
+
+--------
+
+Basic Business logic vulnerabilities: 
+they could arise from flawed assumptions about user behavior > the attacker may use it in a unintented ways to exploit the application. 
+this can result in intended purchase workflow, bad user inpput/malicious, unexpected values in server logic, something else/entirely new can be induced. -- this means the application fails to handle the situation safely. 
+
+DEVLOPERS NEED TO understand that how different functions can be combined in unexpected ways
+
+Examples: excessive tust in client-side controls: the assumption is user is only going to interact with applicaitons via the provided web interface/relying only on client side validaiton--Burp can be used to bypass this.  
+another could be accpeting data at face value
