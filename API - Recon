@@ -179,4 +179,9 @@ this can result in intended purchase workflow, bad user inpput/malicious, unexpe
 DEVLOPERS NEED TO understand that how different functions can be combined in unexpected ways
 
 Examples: excessive tust in client-side controls: the assumption is user is only going to interact with applicaitons via the provided web interface/relying only on client side validaiton--Burp can be used to bypass this.  
-another could be accpeting data at face value
+another could be accpeting data at face value. 
+
+Failing to handle unconventional input: 
+ Are there any limits that are imposed on the data?
+What happens when you reach those limits?
+Is any transformation or normalization being performed on your input? 
