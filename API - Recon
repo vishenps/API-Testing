@@ -185,3 +185,39 @@ Failing to handle unconventional input:
  Are there any limits that are imposed on the data?
 What happens when you reach those limits?
 Is any transformation or normalization being performed on your input? 
+
+
+Side note: what's fragment identifier? 
+
+
+Server Side parameter pollution:
+If you're able to truncate the server-side request, this removes the requirement for the publicProfile field to be set to true. You may be able to exploit this to return non-public user profiles. 
+
+
+So deep in the mud i had to learn types of APIs:
+REST api's: representational state transfer is widely used APIs architecture mainly in HTTP methods, the REST api treats each piece of data with a unique endpoint. 
+API is all about communication, they're simple and standaridized, they're scaleable and stateless(what data is which state, you don't have to worry) and most importantly they support cacheing. 
+
+C- Create.    >> POST
+R- read.  >> get
+U - update. >> PUT
+D- delete   >> delete. 
+
+
+request have : header + Operation + parametres OR Body + headers(api key or some authentication data) 
+Limitations of REST APIs
+
+REST APIs can require multiple requests to fetch related data, leading to over-fetching (receiving too much unnecessary data) or under-fetching (not receiving enough data in a single request). The lack of enforced schema means API contracts rely on documentation rather than formal definitions.
+
+
+
+HOW TO CHOOSE RIGHT KIND OF API; 
+Match your use case: REST for CRUD operations, WebSocket for real-time updates, GraphQL for complex nested data, gRPC for high-performance microservices, and SOAP for regulated enterprise systems.
+
+Evaluate performance: Binary protocols like gRPC outperform text-based JSON at scale. WebSocket and event-driven APIs are well-suited for continuous workloads. REST with proper caching handles most web service needs efficiently.
+
+Consider your audience and team: Public APIs should favor REST or GraphQL for broad compatibility and interoperability. Internal APIs can use gRPC or event-driven patterns. Choose architectures your team knows or can learn, with strong tooling for design, testing, and monitoring.
+
+Usaually : REST for public endpoints, gRPC for internal microservices, GraphQL for mobile applications, and WebSocket for real-time features.
+
+
