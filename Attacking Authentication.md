@@ -26,3 +26,10 @@ one key thing in attacking via brute force is understanding the responses of web
 
 ***KNOWING WHAT TOOLS TO USE, PASS/DUMP the values correctly is super iMP***
 
+
+
+
+![![Authentication port swigger](image-34.png)](image-33.png)
+what i have learned from these labs?? 
+
+
